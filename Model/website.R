@@ -1,0 +1,27 @@
+library(shiny)
+library(shinyjs)
+library(shinyalert)
+library(ggplot2)
+library(stringr)
+library(seqinr)
+library(ggnewscale)
+library(openxlsx)
+source("~/code/earProject/gene_therapy/Model/functions.R")
+source("~/code/earProject/gene_therapy/Model/functions2.R")
+source("~/code/earProject/gene_therapy/Model/functions3.R")
+source("~/code/earProject/gene_therapy/Model/UI.R")
+source("~/code/earProject/gene_therapy/Model/server.R")
+library(Biostrings)
+library(ggrepel)
+library(ComplexHeatmap)
+options(warn=-1)
+load(file='~/data/project/ear_project/gene_therapy_ll/website_data.Rda')
+load("~/Nutstore Files/Tobin/Predict/tissue_u2os_stat_data.rda")
+# load("~/data/project/ear_project/gene_therapy_ll/Otof_cell_tissue_new_data.rda")
+#rs397515581
+addResourcePath(prefix = "tmp", directoryPath = tempdir())
+shinyApp(
+  ui,
+  server, options = list(host="0.0.0.0", port=8100,launch.browser=F)
+)
+
